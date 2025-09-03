@@ -43,3 +43,51 @@ Set up environment variables and cleaned up unnecessary images
 
 ## Commit Hash
 c786609
+
+---
+
+## Session Date
+Thursday, September 4, 2025
+
+## Task Performed
+Updated Docker files and configuration files to point to the correct repository
+
+## Actions Taken
+1. Updated docker-compose.yml.sample to replace Rongronggg9/RSS-to-Telegram-Bot with EngDawood/Yemen-Jobs-RSS
+2. Updated app.json to point to the new repository URL
+3. Updated setup.cfg to point to the new repository URL
+4. Updated .env.sample to reference the new repository in comments
+5. Updated .env to reference the new repository in comments
+
+## Files Modified
+- docker-compose.yml.sample
+- app.json
+- setup.cfg
+- .env.sample
+- .env
+
+## Commit Hash
+145ec99
+
+## Repository URL
+https://github.com/EngDawood/Yemen-Jobs-RSS
+
+---
+
+## Session Date
+Thursday, September 4, 2025
+
+## Task Performed
+Updated feedparser repository reference
+
+## Actions Taken
+1. Updated requirements.txt to point to EngDawood/feedparser instead of Rongronggg9/feedparser
+
+## Files Modified
+- requirements.txt
+
+## Commit Hash
+[Pending - to be committed]
+
+## Repository URL
+https://github.com/EngDawood/Yemen-Jobs-RSS
