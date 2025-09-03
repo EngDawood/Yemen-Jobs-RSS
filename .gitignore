@@ -233,13 +233,40 @@ fabric.properties
 .nfs*
 
 ### User defined
-config/
-icon/
+# IDE and editor files
 .idea/
+*.swp
+*.swo
+*~
+
+# Environment files
+.env.local
+.env.*.local
+
+# Docker files
+docker-compose*.yml
+docker-compose*.yaml
+docker-compose.override.yml
+
+# Log files
+*.log
+
+# OS generated files
+*.bak
+*.tmp
+*.orig
+
+# Script files
 *.sh
 *.bat
 *.cmd
-*.bak
-docker-compose*.yml
-docker-compose*.yaml
+
+# Version file
 .version
+
+# Database files
+*.db
+*.sqlite
+
+# Configuration files (commented out config/ since it might be needed)
+# config/
