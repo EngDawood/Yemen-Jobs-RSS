@@ -66,8 +66,7 @@
 
 ## Deployment
 
-[![dockeri.co](https://dockerico.blankenship.io/image/engdawood/yemen-jobs-rss)](https://hub.docker.com/r/engdawood/yemen-jobs-rss)\
-[![Build status (main)](https://img.shields.io/github/actions/workflow/status/EngDawood/Yemen-Jobs-RSS/publish-docker-image.yml?branch=main&label=build&logo=docker)](https://github.com/EngDawood/Yemen-Jobs-RSS/actions/workflows/publish-docker-image.yml?query=branch%3Amain)
+[![dockeri.co](https://dockerico.blankenship.io/image/engdawood/yemen-jobs-rss)](https://hub.docker.com/r/engdawood/yemen-jobs-rss)\n[![Build status (main)](https://img.shields.io/github/actions/workflow/status/EngDawood/Yemen-Jobs-RSS/publish-docker-image.yml?branch=main&label=build&logo=docker)](https://github.com/EngDawood/Yemen-Jobs-RSS/actions/workflows/publish-docker-image.yml?query=branch%3Amain)
 
 [![PyPI](https://img.shields.io/pypi/v/rsstt?logo=pypi&logoColor=white&label=PyPI)](https://pypi.org/project/rsstt/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rsstt?logo=python&label=&labelColor=white)](https://www.python.org)\

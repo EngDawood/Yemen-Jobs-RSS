@@ -203,6 +203,7 @@ cmake-build-*/
 *.iws
 
 # IntelliJ
+.idea/
 out/
 
 # mpeltonen/sbt-idea plugin
@@ -216,6 +217,11 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+### Vim template
+# Vim swap files
+*.swp
+*.swo
 
 ### Linux template
 *~
@@ -232,14 +238,19 @@ fabric.properties
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
 
-### User defined
-# IDE and editor files
-.idea/
-*.swp
-*.swo
-*~
+### Project-specific ignores
+# AI-generated documentation files
+qwen.md
+gemini.md
 
-# Environment files
+# Cline ignore file
+.clineignore
+
+# Qwen configuration directory
+.qwen/*
+
+### Additional ignores
+# Environment files (local overrides)
 .env.local
 .env.*.local
 
@@ -247,9 +258,6 @@ fabric.properties
 docker-compose*.yml
 docker-compose*.yaml
 docker-compose.override.yml
-
-# Log files
-*.log
 
 # OS generated files
 *.bak

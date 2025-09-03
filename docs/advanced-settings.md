@@ -23,7 +23,7 @@
 
 [telegram_api]: https://core.telegram.org/api/obtaining_api_id
 
-[telegraph_api]: https://api.telegra.ph/createAccount?short_name=RSStT&author_name=Generated%20by%20RSStT&author_url=https%3A%2F%2Fgithub.com%2FRongronggg9%2FRSS-to-Telegram-Bot
+[telegraph_api]: https://api.telegra.ph/createAccount?short_name=RSStT&author_name=Dawood%20Saleh&author_url=https%3A%2F%2Ft.me%2Fdawo5d
 
 ### Network settings
 
