@@ -5,11 +5,11 @@
 
 <p align="center"><b>A Telegram RSS bot that cares about your reading experience</b></p>
 
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Rongronggg9/RSS-to-Telegram-Bot?logo=git&label=commit)](https://github.com/Rongronggg9/RSS-to-Telegram-Bot/commits)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/EngDawood/Yemen-Jobs-RSS?logo=git&label=commit)](https://github.com/EngDawood/Yemen-Jobs-RSS/commits)
 [![Translating status](https://img.shields.io/weblate/progress/rss-to-telegram-bot?logo=weblate&color=informational)](https://hosted.weblate.org/engage/rss-to-telegram-bot/)
-[![Code quality](https://img.shields.io/codefactor/grade/github/Rongronggg9/RSS-to-Telegram-Bot?logo=codefactor)](https://www.codefactor.io/repository/github/rongronggg9/rss-to-telegram-bot)
-[![GitHub stars](https://img.shields.io/github/stars/Rongronggg9/Rss-to-Telegram-Bot?style=social)](https://github.com/Rongronggg9/RSS-to-Telegram-Bot/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/Rongronggg9/RSS-to-Telegram-Bot?style=social)](https://github.com/Rongronggg9/RSS-to-Telegram-Bot/fork)
+[![Code quality](https://img.shields.io/codefactor/grade/github/EngDawood/Yemen-Jobs-RSS?logo=codefactor)](https://www.codefactor.io/repository/github/engdawood/yemen-jobs-rss)
+[![GitHub stars](https://img.shields.io/github/stars/EngDawood/Yemen-Jobs-RSS?style=social)](https://github.com/EngDawood/Yemen-Jobs-RSS/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/EngDawood/Yemen-Jobs-RSS?style=social)](https://github.com/EngDawood/Yemen-Jobs-RSS/fork)
 
 [![Telegram bot](https://img.shields.io/badge/Telegram%20Bot-%40RSStT__Bot-229ed9?logo=telegram&style=for-the-badge)](https://t.me/RSStT_Bot)
 [![Telegram group](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.swo.moe%2Fstats%2Ftelegram%2FRSStT_Group&query=count&color=2CA5E0&label=Telegram%20Group&logo=telegram&cacheSeconds=3600&style=for-the-badge)](https://t.me/RSStT_Group)
@@ -66,15 +66,12 @@
 
 ## Deployment
 
-[![dockeri.co](https://dockerico.blankenship.io/image/rongronggg9/rss-to-telegram)](https://hub.docker.com/r/rongronggg9/rss-to-telegram)\
-[![Build status (master)](https://img.shields.io/github/actions/workflow/status/Rongronggg9/RSS-to-Telegram-Bot/publish-docker-image.yml?branch=master&label=build&logo=docker)](https://github.com/Rongronggg9/RSS-to-Telegram-Bot/actions/workflows/publish-docker-image.yml?query=branch%3Amaster)
-[![Build status (dev)](https://img.shields.io/github/actions/workflow/status/Rongronggg9/RSS-to-Telegram-Bot/publish-docker-image.yml?branch=dev&label=build%20%28dev%29&logo=docker)](https://github.com/Rongronggg9/RSS-to-Telegram-Bot/actions/workflows/publish-docker-image.yml?query=branch%3Adev)
+[![dockeri.co](https://dockerico.blankenship.io/image/engdawood/yemen-jobs-rss)](https://hub.docker.com/r/engdawood/yemen-jobs-rss)\
+[![Build status (main)](https://img.shields.io/github/actions/workflow/status/EngDawood/Yemen-Jobs-RSS/publish-docker-image.yml?branch=main&label=build&logo=docker)](https://github.com/EngDawood/Yemen-Jobs-RSS/actions/workflows/publish-docker-image.yml?query=branch%3Amain)
 
 [![PyPI](https://img.shields.io/pypi/v/rsstt?logo=pypi&logoColor=white&label=PyPI)](https://pypi.org/project/rsstt/)
-[![TestPyPI](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Ftest.pypi.org%2Fpypi%2Frsstt%2Fjson&query=%24.info.version&prefix=v&logo=pypi&logoColor=white&label=TestPyPI)](https://test.pypi.org/project/rsstt/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rsstt?logo=python&label=&labelColor=white)](https://www.python.org)\
-[![PyPI publish status](https://img.shields.io/github/actions/workflow/status/Rongronggg9/RSS-to-Telegram-Bot/publish-to-pypi.yml?label=publish&logo=pypi&logoColor=white)](https://github.com/Rongronggg9/RSS-to-Telegram-Bot/actions/workflows/publish-to-pypi.yml)
-[![TestPyPI publish status](https://img.shields.io/github/actions/workflow/status/Rongronggg9/RSS-to-Telegram-Bot/publish-to-test-pypi.yml?label=publish%20(TestPyPI)&logo=pypi&logoColor=white)](https://github.com/Rongronggg9/RSS-to-Telegram-Bot/actions/workflows/publish-to-test-pypi.yml)
+[![PyPI publish status](https://img.shields.io/github/actions/workflow/status/EngDawood/Yemen-Jobs-RSS/publish-to-pypi.yml?label=publish&logo=pypi&logoColor=white)](https://github.com/EngDawood/Yemen-Jobs-RSS/actions/workflows/publish-to-pypi.yml)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/rsstt?logo=pypi&logoColor=white)](https://pypi.org/project/rsstt/)
 
 It is quite easy to deploy your RSStT instance. The most recommended way to deploy RSStT is Docker Compose: it is suitable for virtually all VPS. [Railway.app](https://railway.app) (a PaaS platform) is also officially supported. You may also install RSStT from [PyPI](https://pypi.org/project/rsstt/) (tracking `master` branch) or [TestPyPI](https://test.pypi.org/project/rsstt/) (tracking `dev` branch, which is always up-to-date) using pip. For developers or experienced users, dirty run from source is also an option.
@@ -108,6 +105,7 @@ This project is licensed under [AGPLv3+](LICENSE). Closed-source distribution or
 
     RSS to Telegram Bot
     Copyright (C) 2020-2024  Rongrong <i@rong.moe>
+    Copyright (C) 2025  Eng. Dawood <your-email@example.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -123,3 +121,4 @@ This project is licensed under [AGPLv3+](LICENSE). Closed-source distribution or
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 The repository was forked from [BoKKeR/RSS-to-Telegram-Bot](https://github.com/BoKKeR/RSS-to-Telegram-Bot) in 2020. Since some time in 2021, they share no common codebase and should be considered as completely different projects.
+This project was further forked from [Rongronggg9/RSS-to-Telegram-Bot](https://github.com/Rongronggg9/RSS-to-Telegram-Bot) in 2025.
