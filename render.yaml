@@ -1,26 +1,28 @@
 services:
   - type: web
-    name: rss-to-telegram-bot
-    env: python
-    plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python telegramRSSbot.py"
+    name: yemen-jobs-rss
+    runtime: docker
+    dockerfilePath: ./Dockerfile
     envVars:
+      - key: PORT
+        fromService:
+          type: web
+          name: yemen-jobs-rss
+          property: port
       - key: TOKEN
         sync: false
       - key: MANAGER
         sync: false
-      - key: TELEGRAPH_TOKEN
-        sync: false
-      - key: API_ID
-        sync: false
-      - key: API_HASH
-        sync: false
-      - key: USER_AGENT
-        sync: false
-      - key: IPV6_PRIOR
-        sync: false
-      - key: MULTIUSER
-        sync: false
-      - key: DEBUG
-        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: yemen-jobs-db
+          property: connectionString
+    healthCheckPath: /
+    buildCommand: "echo 'Build completed'"
+    startCommand: "python -u telegramRSSbot.py"
+
+databases:
+  - name: yemen-jobs-db
+    databaseName: yemen_jobs_rss
+    user: yemen_jobs_user
+    plan: free

@@ -214,6 +214,31 @@ class Sub(Model, Base):
         unique_together = ('user_id', 'feed_id')  # will also be indexed
 
 
+class DomainSettings(Model, Base):
+    """
+    Domain settings model.
+
+    Stores website-specific settings for RSS feeds from particular domains.
+    """
+    id = fields.IntField(pk=True)
+    domain = fields.CharField(max_length=255, unique=True, description='Domain name (e.g., jobs.yemen.com)')
+    custom_title_template = fields.CharField(max_length=1024, null=True, description='Custom title template for posts from this domain')
+    hashtag_filter = fields.JSONField(null=True, description='List of hashtags to add for this domain')
+    content_filter = fields.JSONField(null=True, description='Content filtering rules (patterns to remove/replace)')
+    media_handling = fields.CharField(max_length=32, default='auto', description='Media handling: auto, include, exclude, only_media')
+    send_mode = fields.SmallIntField(default=0, description='Default send mode for this domain')
+    display_author = fields.SmallIntField(default=0, description='Default author display setting')
+    display_via = fields.SmallIntField(default=0, description='Default via display setting')
+    style = fields.SmallIntField(default=0, description='Default style for this domain')
+    enabled = fields.BooleanField(default=True, description='Whether domain settings are enabled')
+
+    class Meta:
+        table = 'domain_settings'
+
+    def __str__(self):
+        return f"{self.domain} ({'enabled' if self.enabled else 'disabled'})"
+
+
 class Option(Model, Base):
     """
     Option model.

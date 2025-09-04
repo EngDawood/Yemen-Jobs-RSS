@@ -170,6 +170,14 @@ async def pre():
                           events.NewMessage(pattern=construct_command_matcher('/user_info')))
     bot.add_event_handler(command.administration.cmd_set_option,
                           events.NewMessage(pattern=construct_command_matcher('/set_option')))
+    bot.add_event_handler(command.domain.cmd_set_domain_settings,
+                          events.NewMessage(pattern=construct_command_matcher('/set_domain')))
+    bot.add_event_handler(command.domain.cmd_list_domain_settings,
+                          events.NewMessage(pattern=construct_command_matcher('/list_domains')))
+    bot.add_event_handler(command.domain.cmd_remove_domain_settings,
+                          events.NewMessage(pattern=construct_command_matcher('/remove_domain')))
+    bot.add_event_handler(command.domain.cmd_get_domain_info,
+                          events.NewMessage(pattern=construct_command_matcher('/domain_info')))
 
     # trigger bt inline query
     inline_query_matcher = rf'(@{env.bot_peer.username}\s+)?'

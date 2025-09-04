@@ -17,6 +17,8 @@
 from __future__ import annotations
 from typing import Optional
 
+import os
+import listparser
 from contextlib import suppress
 from telethon import events, types, Button
 from telethon.errors import RPCError
@@ -29,6 +31,9 @@ from .utils import (
 from ..i18n import i18n, get_commands_list
 from . import inner
 from .types import *
+from ..aio_helper import run_async
+from ..compat import bozo_exception_removal_wrapper
+from functools import partial
 
 
 @command_gatekeeper(only_manager=False, ignore_tg_lang=True)
@@ -41,7 +46,98 @@ async def cmd_start(
     if lang is None:
         await cmd_lang.__wrapped__(event)
         return
-    await cmd_or_callback_help.__wrapped__(event, lang=lang)
+
+    user_id = event.chat_id
+
+    # Check if user already has subscriptions
+    existing_subs_count = await db.Sub.filter(user_id=user_id, state=1).count()
+
+    if existing_subs_count == 0:
+        # New user - automatically subscribe to default Yemen jobs feeds
+        try:
+            # Read and parse the default OPML file
+            default_opml_path = os.path.join(os.path.dirname(__file__), '..', 'default_feeds.opml')
+            if os.path.exists(default_opml_path):
+                with open(default_opml_path, 'rb') as f:
+                    opml_content = f.read()
+
+                # Parse OPML
+                opml_d = await run_async(
+                    partial(bozo_exception_removal_wrapper, listparser.parse, opml_content),
+                    prefer_pool='thread'
+                )
+
+                if opml_d.feeds:
+                    # Extract feed URLs and titles
+                    feed_data = []
+                    for feed in opml_d.feeds:
+                        if feed.url:
+                            if feed.text and feed.text != feed.title_orig:
+                                feed_data.append((feed.url, feed.text))
+                            else:
+                                feed_data.append(feed.url)
+
+                    if feed_data:
+                        # Subscribe user to default feeds
+                        import_result = await inner.sub.subs(user_id, tuple(feed_data), lang=lang)
+
+                        if import_result and import_result['success_count'] > 0:
+                            welcome_msg = f"""🇾🇪 **Welcome to Yemen Jobs RSS Bot!**
+
+I've automatically subscribed you to {import_result['success_count']} Yemen job feeds:
+
+• YemenHR Latest Jobs and Tenders
+• Yemen HR - Premier Jobs & Tenders Platform
+• Yemen Jobs Feed 1
+• Yemen Jobs Feed 2
+
+You'll receive notifications for new job postings. Use /list to see your subscriptions and /set to customize them.
+
+{import_result['success_msg']}
+
+Use /help for more commands."""
+                        else:
+                            welcome_msg = f"""🇾🇪 **Welcome to Yemen Jobs RSS Bot!**
+
+I've set up your account! You can now subscribe to job feeds using /sub [URL] or import feeds with /import.
+
+Use /help to see all available commands."""
+                    else:
+                        welcome_msg = f"""🇾🇪 **Welcome to Yemen Jobs RSS Bot!**
+
+I've set up your account! You can now subscribe to job feeds using /sub [URL] or import feeds with /import.
+
+Use /help to see all available commands."""
+                else:
+                    welcome_msg = f"""🇾🇪 **Welcome to Yemen Jobs RSS Bot!**
+
+I've set up your account! You can now subscribe to job feeds using /sub [URL] or import feeds with /import.
+
+Use /help to see all available commands."""
+            else:
+                welcome_msg = f"""🇾🇪 **Welcome to Yemen Jobs RSS Bot!**
+
+I've set up your account! You can now subscribe to job feeds using /sub [URL] or import feeds with /import.
+
+Use /help to see all available commands."""
+        except Exception as e:
+            logger.warning(f'Failed to auto-subscribe default feeds for {user_id}: {e}')
+            welcome_msg = f"""🇾🇪 **Welcome to Yemen Jobs RSS Bot!**
+
+I've set up your account! You can now subscribe to job feeds using /sub [URL] or import feeds with /import.
+
+Use /help to see all available commands."""
+    else:
+        # Existing user - show regular help
+        welcome_msg = f"""🇾🇪 **Welcome back to Yemen Jobs RSS Bot!**
+
+You have {existing_subs_count} active subscription(s). Use /list to see them.
+
+Use /help for more commands."""
+
+    await event.respond(welcome_msg, parse_mode='markdown')
+    help_button = Button.inline(text=i18n[lang]['cmd_description_help'], data='help')
+    await event.respond("Choose an option:", buttons=[help_button])
 
 
 @command_gatekeeper(only_manager=False)

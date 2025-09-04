@@ -29,6 +29,7 @@ from .html_parser import parse
 from .html_node import *
 from .medium import Media, AbstractMedium, Image, Video, Audio, File, Animation
 from ..web.media import construct_weserv_url_convert_to_2560
+from ..helpers.domain_utils import DomainUtils
 
 AUTO: Final = 0
 DISABLE: Final = -1
@@ -139,7 +140,8 @@ class PostFormatter:
                                  display_title: int = 0,
                                  display_entry_tags: int = -1,
                                  style: int = 0,
-                                 display_media: int = 0) -> Optional[tuple[str, bool, bool]]:
+                                 display_media: int = 0,
+                                 feed_link: Optional[str] = None) -> Optional[tuple[str, bool, bool]]:
         """
         Get formatted post.
 
@@ -171,6 +173,52 @@ class PostFormatter:
 
         sub_title = (sub_title or self.feed_title)
         tags = tags or []
+
+        # ---- Apply domain-specific settings ----
+        domain = None
+        domain_settings = None
+        if feed_link:
+            domain = DomainUtils.extract_domain(feed_link)
+            if domain:
+                domain_settings = await DomainUtils.get_domain_settings(domain)
+
+        # Apply domain settings if available
+        if domain_settings:
+            # Apply content filtering
+            if domain_settings.content_filter:
+                self.html = DomainUtils.apply_content_filters(self.html, domain_settings.content_filter)
+
+            # Apply title template
+            if domain_settings.custom_title_template and self.title:
+                self.title = DomainUtils.apply_title_template(
+                    self.title, domain_settings.custom_title_template, sub_title
+                )
+
+            # Merge domain hashtags
+            if domain_settings.hashtag_filter:
+                tags = DomainUtils.get_domain_hashtags(domain, tags, domain_settings.hashtag_filter)
+
+            # Override settings with domain-specific values
+            base_settings = {
+                'send_mode': send_mode,
+                'display_author': display_author,
+                'display_via': display_via,
+                'display_title': display_title,
+                'display_entry_tags': display_entry_tags,
+                'style': style,
+                'display_media': display_media
+            }
+
+            merged_settings = DomainUtils.merge_domain_settings(base_settings, domain_settings)
+
+            # Update parameters with merged settings
+            send_mode = merged_settings['send_mode']
+            display_author = merged_settings['display_author']
+            display_via = merged_settings['display_via']
+            display_title = merged_settings['display_title']
+            display_entry_tags = merged_settings['display_entry_tags']
+            style = merged_settings['style']
+            display_media = merged_settings['display_media']
 
         param_hash = f'{sub_title}|{tags}|{send_mode}|{length_limit}|{link_preview}|' \
                      f'{display_author}|{display_via}|{display_title}|{display_entry_tags}|{display_media}|{style}'

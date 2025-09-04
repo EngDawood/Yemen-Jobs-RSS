@@ -1,0 +1,37 @@
+{
+  "mcpServers": {
+    "render": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "RENDER_API_KEY",
+        "-v",
+        "render-mcp-server-config:/config",
+        "ghcr.io/render-oss/render-mcp-server"
+      ],
+      "env": {
+        "RENDER_API_KEY": "rnd_F98hJHNye2NcVxyQ97m4noTNdmDr"
+      }
+    },
+    "telegram-mcp-server": {
+      "timeout": 60,
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@NexusX-MCP/telegram-mcp-server",
+        "--key",
+        "fa5e0c14-6c83-4eed-b245-b1161966cd41",
+        "--profile",
+        "secret-wombat-gYHlvL"
+      ]
+    }
+  }
+}

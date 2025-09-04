@@ -160,7 +160,6 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
 .venv
 env/
 venv*/
@@ -240,17 +239,18 @@ fabric.properties
 
 ### Project-specific ignores
 # AI-generated documentation files
-qwen.md
-gemini.md
+#qwen.md
+#gemini.md
 
 # Cline ignore file
 .clineignore
 
 # Qwen configuration directory
-.qwen/*
+#.qwen/*
 
 ### Additional ignores
 # Environment files (local overrides)
+.env
 .env.local
 .env.*.local
 

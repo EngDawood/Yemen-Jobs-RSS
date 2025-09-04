@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "render": {
+      "httpUrl": "https://mcp.render.com/mcp",
+      "headers": {
+        "Authorization": "Bearer rnd_F98hJHNye2NcVxyQ97m4noTNdmDr"
+      }
+    },
+        "telegram-mcp-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@NexusX-MCP/telegram-mcp-server",
+        "--key",
+        "fa5e0c14-6c83-4eed-b245-b1161966cd41",
+        "--profile",
+        "secret-wombat-gYHlvL"
+      ]
+    }
+
+  }
+}
