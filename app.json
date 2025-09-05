@@ -1,9 +1,9 @@
 {
-    "name": "RSS to Telegram Bot",
+    "name": "YemenHR RSS to Telegram Bot",
     "description": "A Telegram RSS bot that cares about your reading experience",
     "logo": "https://raw.githubusercontent.com/EngDawood/Yemen-Jobs-RSS/dev/docs/resources/RSStT_icon.svg",
     "repository": "https://github.com/EngDawood/Yemen-Jobs-RSS",
-    "website": "https://t.me/RSStT_Channel",
+    "website": "https://t.me/hr_yemen",
     "keywords": [
         "python",
         "RSS",
