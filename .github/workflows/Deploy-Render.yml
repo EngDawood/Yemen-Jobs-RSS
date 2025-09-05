@@ -1,0 +1,2 @@
+- name: Deploy to Render
+  uses: JorgeLNJunior/render-deploy@v1.4.5
