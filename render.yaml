@@ -1,13 +1,13 @@
 services:
   - type: web
-    name: yemen-jobs-rss
+    name: yemen-jobs-rss-bot
     runtime: docker
     dockerfilePath: ./Dockerfile
     envVars:
       - key: PORT
         fromService:
           type: web
-          name: yemen-jobs-rss
+          name: yemen-jobs-rss-bot
           property: port
       - key: TOKEN
         sync: false
