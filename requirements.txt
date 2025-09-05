@@ -9,7 +9,7 @@ listparser[lxml]==0.20
 pillow==11.3.0
 beautifulsoup4==4.13.5
 lxml==6.0.1
-rapidfuzz==3.13.0
+rapidfuzz==3.14.0
 emoji==2.14.1
 minify-html==0.16.4
 minify-html-onepass==0.16.4
@@ -34,7 +34,7 @@ colorlog==6.9.0
 APScheduler==3.11.0
 python-dotenv==1.1.1
 multidict==6.6.4
-asyncstdlib==3.13.1
+asyncstdlib==3.12.1
 cachetools==6.2.0
 CJKwrap==2.2
 typing-extensions==4.15.0

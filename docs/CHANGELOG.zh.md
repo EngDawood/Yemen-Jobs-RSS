@@ -2,10 +2,6 @@
 
 ## 未发布
 
-### 亮点
-
-- **支持 Python 3.13**: 正式支持 Python 3.13。官方 Docker 镜像现在也基于 Python 3.13。
-
 ### 增强
 
 - **次要的增强**: 改进了一些内部函数以增强与各种 feed 的兼容性。新增了两个环境变量 (`HTTP_MAX_LINE_SIZE` 和 `HTTP_MAX_FIELD_SIZE`，有关详情请参阅 [高级设置](advanced-settings.md))。

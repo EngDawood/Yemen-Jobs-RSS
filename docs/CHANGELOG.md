@@ -2,10 +2,6 @@
 
 ## Unreleased
 
-### Highlights
-
-- **Support Python 3.13**: Officially supports Python 3.13. The official Docker image is now based on Python 3.13 as well.
-
 ### Enhancements
 
 - **Minor enhancements**: Some internal functions have been refined to enhance compatibility with various feeds. Two new environment variables have been added (`HTTP_MAX_LINE_SIZE` and `HTTP_MAX_FIELD_SIZE`, see [Advanced Settings](advanced-settings.md) for more details).
