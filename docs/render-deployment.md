@@ -84,7 +84,7 @@ CRON_SECOND=30
 ## 🎯 **Deployment Steps**
 
 1. **Push Changes**: Commit and push all the fixes to your repository
-2. **Create Render Service**: 
+2. **Create Render Service**:
    - Go to Render Dashboard
    - New → Web Service
    - Connect your GitHub repo

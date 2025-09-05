@@ -6,10 +6,10 @@
         <docs>http://www.opml.org/spec2</docs>
     </head>
     <body>
-    
+
         <outline type="rss" text="YemenHR Latest Jobs and Tenders" xmlUrl="https://yemenhr.com/"/>
-    
+
         <outline type="rss" text="Yemen HR - Yemen&#39;s Premier Jobs &amp; Tenders Platform" xmlUrl="https://politepol.com/fd/6Ff6PzDc5G4m.xml"/>
-    
+
     </body>
 </opml>
