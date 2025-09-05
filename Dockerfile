@@ -44,6 +44,7 @@ ARG EXP_REGEX='^([^~=<>]+)[^#]*#\s*(\1@.+)$'
 COPY requirements.txt .
 RUN \
     set -ex && \
+    sed -i 's/feedparser==6.0.11  # feedparser@git+https:\/\/github.com\/EngDawood\/feedparser.git@develop//' requirements.txt && \
     pip wheel --no-cache-dir --no-deps \
         $(sed -nE "s/$EXP_REGEX/\2/p" requirements.txt)
 
