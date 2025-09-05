@@ -100,13 +100,7 @@ ARG RAILWAY_GIT_BRANCH
 
 RUN \
     set -ex && \
-    echo "$(expr substr "$RAILWAY_GIT_COMMIT_SHA" 1 7)@$RAILWAY_GIT_BRANCH" | tee .version && \
-    if test $(expr length "$(cat .version)") -le 3; then \
-        echo "$(git describe --tags --always)@$(git branch --show-current)" | tee .version ; \
-    fi && \
-    if test $(expr length "$(cat .version)") -le 3; then \
-        echo "dirty-build@$(date -Iseconds)" | tee .version; else echo "build@$(date -Iseconds)" | tee -a .version; \
-    fi && \
+    echo "build@$(date -Iseconds)" | tee .version && \
     mkdir /app-minimal && \
     cp -aL .version LICENSE src telegramRSSbot.py scripts/health_check.py /app-minimal && \
     cd / && \
