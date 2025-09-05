@@ -278,3 +278,6 @@ docker-compose.override.yml
 
 # Configuration files (commented out config/ since it might be needed)
 # config/
+
+.gemini/
+gha-creds-*.json
