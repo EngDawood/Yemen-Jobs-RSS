@@ -48,6 +48,10 @@ RUN \
     if grep -qE "^[^#]" requirements.txt; then \
         pip wheel --no-cache-dir --no-deps \
             $(sed -nE "s/$EXP_REGEX/\2/p" requirements.txt); \
+    else \
+        echo "No requirements to process, skipping pip wheel" && \
+        touch empty_requirements && \
+        exit 0; \
     fi
 
 COPY --from=dep-builder-common /opt/venv /opt/venv
